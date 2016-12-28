@@ -25,9 +25,9 @@ angular.module('MyApp.Controllers')
 		        lastName: data.lastName
 	    	};
     		EmployeeService.Add(param).then(function(response){
+                $scope.employee = {};
+                $scope.employees.push(response.data);
             });
-            $scope.employee = {};
-            $scope.all();
     	}
 
     	$scope.delete = function(data){
@@ -43,9 +43,10 @@ angular.module('MyApp.Controllers')
                 lastName: data.lastName
             };
     		EmployeeService.Update(param).then(function(response){
+                $scope.employee = {};
+                $scope.all();
             })
-            $scope.employee = {};
-            $scope.all();
+            
     	}
 
 }]);
